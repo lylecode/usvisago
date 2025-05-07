@@ -1,0 +1,127 @@
+model User {
+    id            String         @id @default(uuid())
+    realName      String
+    location      String?
+    otherName     String?
+    sex           Sex?
+    photoImage    String?
+    maritalStatus MaritalStatus?
+    birthCity     String?
+    birthProvince String?
+    birthCountry  String?
+    birthDate     DateTime
+    idNumber      String?
+    homeAddress   String?
+    zipCode       String?
+    phone         String?
+    email         String?
+    socialMedia   String?
+    socialAccount String?
+    action        Action
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    Passport         Passport?
+    Travel           Travel?
+    Family           Family?
+    WorkAndEducation WorkAndEducation?
+    Question         Question[]
+
+    @@unique([realName, birthDate, action], name: "realName_birthDate_action")
+}
+
+model Passport {
+    id             String   @id @default(uuid())
+    documentNo     String
+    issuedCountry  String
+    issuedProvince String
+    issuedCity     String
+    issuedDate     DateTime
+    expirationDate DateTime
+    user           User     @relation(fields: [userId], references: [id])
+    userId         String   @unique
+}
+
+model Travel {
+    id              String   @id @default(uuid())
+    departureCity   String
+    locations       String
+    address         String
+    province        String
+    city            String
+    zipCode         String
+    phone           String
+    departureFlight String
+    arrivalCity     String
+    arrivalFlight   String
+    arrivalDate     DateTime
+    departureDate   DateTime
+    user            User     @relation(fields: [userId], references: [id])
+    userId          String   @unique
+}
+
+model Family {
+    id             String    @id @default(uuid())
+    fatherName     String
+    fatherDate     DateTime
+    motherName     String
+    motherDate     DateTime
+    spouseName     String?
+    spouseDate     DateTime?
+    spouseAddress  String?
+    spouseProvince String?
+    spouseCity     String?
+
+    user   User   @relation(fields: [userId], references: [id])
+    userId String @unique
+}
+
+model WorkAndEducation {
+    id            String   @id @default(uuid())
+    comName       String
+    comAddress    String
+    comPhone      String
+    comCountry    String
+    occupation    String
+    startDate     DateTime
+    monthlyIncome String
+
+    eduName      String?
+    eduAddress   String?
+    eduCountry   String?
+    eduCourse    String?
+    eduStartDate DateTime?
+    eduEndDate   DateTime?
+
+    user   User   @relation(fields: [userId], references: [id])
+    userId String @unique
+}
+
+model Question {
+    id            String @id @default(uuid())
+    questionIndex String
+    describe      String
+    userId        String
+    user          User   @relation(fields: [userId], references: [id])
+
+    @@unique([userId, questionIndex], name: "userId_questionIndex") // 添加复合唯一键
+}
+
+enum Sex {
+    F
+    M
+}
+
+enum Action {
+    VISA
+    EVUS
+}
+
+enum MaritalStatus {
+    MARRIED
+    SINGLE
+    WIDOWED
+    DIVORCED
+    DOMESTIC_PARTNERSHIP
+}
