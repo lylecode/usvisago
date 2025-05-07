@@ -3,6 +3,7 @@ import { cityCountryMap } from '@/constants/cityMapping';
 import api from '@/lib/ky';
 import { addMonths, format } from 'date-fns';
 import { parse } from 'node-html-parser';
+export const dynamic = 'force-dynamic';
 
 const getCityInfo = (cityName: string) => cityCountryMap[cityName] ?? '';
 const parseTableWithNodeHtmlParser = (html: string): string[][] => {
