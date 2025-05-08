@@ -2,8 +2,12 @@ import Container from '@/components/layout/Container';
 import { cityCountryMap } from '@/constants/cityMapping';
 import api from '@/lib/ky';
 import { addMonths, format } from 'date-fns';
+import { Metadata } from 'next';
 import { parse } from 'node-html-parser';
 export const dynamic = 'force-dynamic';
+export const metadata: Metadata = {
+  title: '美签面谈时间',
+};
 
 const getCityInfo = (cityName: string) => cityCountryMap[cityName] ?? '';
 const parseTableWithNodeHtmlParser = (html: string): string[][] => {
@@ -70,9 +74,7 @@ const InterviewPage = async () => {
                   return 0;
                 })
                 .map((item, index) => (
-                  <tr
-                    key={index}
-                    className="relative transition-colors even:bg-neutral-50 hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:h-0.5 hover:after:w-full hover:after:bg-blue-500 hover:after:content-['']">
+                  <tr key={index} className="even:bg-neutral-50">
                     <td className="whitespace-nowrap border p-4 text-neutral-500">
                       {item[0]}（{getCityInfo(item[0]).cityChinese}）
                     </td>
