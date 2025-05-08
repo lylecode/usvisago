@@ -8,7 +8,7 @@ function HeaderMenu() {
   return (
     <div className="flex items-center gap-4 text-base text-neutral-800 md:gap-10">
       <Link href="/" className="md:hidden">
-        首页{' '}
+        首页
       </Link>
       {headerData.map((item) => (
         <Link
