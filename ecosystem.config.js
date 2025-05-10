@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'usvisago',
+      name: 'usavisago',
       script: 'npm',
       args: 'start',
       instances: 'max',

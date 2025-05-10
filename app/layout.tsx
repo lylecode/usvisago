@@ -7,7 +7,7 @@ import './globals.css';
 import { Providers } from './providers';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.usvisago.com'),
+  metadataBase: new URL('https://www.usavisago.com'),
   title: {
     default: '美签申请 - 全中文DS160表格填写',
     template: '%s | 美签申请 - 全中文DS160表格填写',
@@ -39,11 +39,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+
   openGraph: {
     title: {
       default: '美签申请 - 全中文DS160表格填写',
@@ -51,8 +47,8 @@ export const metadata: Metadata = {
     },
     description:
       '全中文申请，简化美国签证DS160表格填写，预设自动填充选项，最短10分钟即可完成申请，无需找中介，自己DIY也可完成。',
-    url: 'https://www.usvisago.com',
-    siteName: 'USVisaGo',
+    url: 'https://www.usavisago.com',
+    siteName: 'USaVisaGo',
 
     type: 'website',
     locale: 'zh_CN',

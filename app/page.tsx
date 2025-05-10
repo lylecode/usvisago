@@ -14,7 +14,7 @@ export default function Home() {
         <div className="flex w-1/2 justify-center">
           <Image
             src="/images/us.png"
-            alt="USVISAGO"
+            alt="USAVISAGO"
             width={0}
             height={0}
             sizes="100vw"

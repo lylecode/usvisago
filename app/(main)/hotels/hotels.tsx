@@ -3,7 +3,6 @@ import ReloadButton from '@/components/ReloadButton';
 import { parse } from 'csv-parse';
 import { createReadStream } from 'fs';
 import { join } from 'path';
-export const dynamic = 'force-dynamic';
 
 interface Hotel {
   name: string;

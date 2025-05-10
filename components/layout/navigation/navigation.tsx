@@ -7,7 +7,7 @@ const Navigation = () => {
     <nav className="flex h-20 items-center justify-between">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
         <span className="text-2xl font-bold">
-          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">USVisa</span>
+          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">USAVisa</span>
           <span className="italic text-foreground">Go</span>
         </span>
       </Link>
